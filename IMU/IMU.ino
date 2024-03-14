@@ -46,13 +46,14 @@ The loop() function is an infinite loop in which the program runs repeatedly
 在setup()函数中的程序执行完后，会接着执行loop()函数中的程序
 loop()函数是一个死循环，其中的程序会不断的重复运行 */
 void loop() {
+    M5.IMU.getAccelData(&accX, &accY, &accZ);
     // PC Begin
     // TODO: Comment Following Code
     if(accX > maxX) maxX = accX;
     if(accY > maxY) maxY = accY;
     if(accZ > maxZ) maxZ = accZ;
     // PC Stop
-    M5.IMU.getAccelData(&accX, &accY, &accZ);
+    
 
     M5.Lcd.setCursor(30, 50);
     M5.Lcd.printf(" %5.2f   %5.2f   %5.2f   ", accX, accY, accZ);

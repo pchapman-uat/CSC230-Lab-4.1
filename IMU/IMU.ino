@@ -68,7 +68,7 @@ void loop() {
     if(M5.BtnA.wasReleased()){
       maxX = 0.0f;
       maxY = 0.0f;
-      maxX = 0.0f;
+      maxZ = 0.0f;
     }
     // PC Stop
     delay(100);

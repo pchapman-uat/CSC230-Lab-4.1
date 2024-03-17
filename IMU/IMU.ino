@@ -35,7 +35,7 @@ void setup() {
     M5.Lcd.setCursor(30, 30);
     M5.Lcd.println("  X       Y       Z");
     // PC Begin
-    // TODO: Comment Following Code
+    // Display the text for the Max Acceleration 
     M5.Lcd.setCursor(10, 80);
     M5.Lcd.println("Max Acc:");
     // PC Stop
@@ -48,7 +48,7 @@ loop()函数是一个死循环，其中的程序会不断的重复运行 */
 void loop() {
     M5.IMU.getAccelData(&accX, &accY, &accZ);
     // PC Begin
-    // TODO: Comment Following Code
+    // Set max value for X, Y, Z, if the value is greater than the current value
     if(accX > maxX) maxX = accX;
     if(accY > maxY) maxY = accY;
     if(accZ > maxZ) maxZ = accZ;
@@ -60,10 +60,11 @@ void loop() {
 
 
     // PC Begin
-    // TODO: Comment Following Code
+    // Using an format string to display the value of maxX, maxY, maxZ
     M5.Lcd.setCursor(30, 80);
     M5.Lcd.printf(" %5.2f   %5.2f   %5.2f   ", maxX, maxY, maxZ);
 
+    // When the button A is pressed, clear the value of maxX, maxY, maxZ
     M5.update();
     if(M5.BtnA.wasReleased()){
       maxX = 0.0f;

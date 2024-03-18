@@ -42,7 +42,6 @@ void setup()
 
 void loop()
 {
-
     // Get the acceleration values, and save it to the variables
 	M5.IMU.getAccelData(&accX, &accY, &accZ);
     // Update the maximum acceleration value
@@ -51,12 +50,10 @@ void loop()
     M5.Lcd.setTextSize(1);
     M5.Lcd.setCursor(30, 50);
     M5.Lcd.printf(" %5.2f   %5.2f   %5.2f   ", accX, accY, accZ);
-
     // Print the maximum acceleration value
     M5.Lcd.setTextSize(3);
     M5.Lcd.setCursor(30, 80);
     M5.Lcd.printf(" %5.2f", maxZ);
-
     // Update is needed to detect button presses
     M5.update();
     // If the A button is pressed...
@@ -70,7 +67,6 @@ void loop()
         // Write to the LED
         digitalWrite(LED_BUILTIN, HIGH);
     }
-
     // If the maximum acceleration value is greater than 5.0, and the isDrop variable is false...
     if(maxZ >= 5.0f && isDrop == false){
         // Fill the screen with red
@@ -78,7 +74,6 @@ void loop()
         // Set the isDrop variable to true
         isDrop = true;
     }
-
     // If the isDrop variable is true...
     if(isDrop) {
         // Write to the LED
